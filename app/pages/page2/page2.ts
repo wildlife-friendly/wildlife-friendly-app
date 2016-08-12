@@ -17,14 +17,13 @@ export class Page2 {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+    this.items = [{
+      title: 'Elephant Nature Park',
+      note: 'Chiang Mai, Thailand',
+      icon: 'build'
+    }]
+
+    
   }
 
   itemTapped(event, item) {

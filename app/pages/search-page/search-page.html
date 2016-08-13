@@ -26,11 +26,11 @@
     </div>
   </div>
 
-  <div *ngIf="searchIsPending && placesFound()" class="results">
+  <div *ngIf="searchIsPending && placesFound()" class="results-message">
     <h2>Results</h2>
   </div>
 
-  <div *ngIf="searchIsPending && !placesFound() && hasQuery" class="results">
+  <div *ngIf="searchIsPending && !placesFound() && hasQuery" class="results-message">
     <h2>No Results</h2>
   </div>
 

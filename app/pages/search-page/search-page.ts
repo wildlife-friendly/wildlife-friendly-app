@@ -18,8 +18,8 @@ export class SearchPage {
   latLng = null;
   searchQuery;
   locations;
-  location: string = "";
-  locationIsSelected: boolean = false;
+  locationQuery: string = "";
+  selectedLocation: string = "";
 
   constructor(public navCtrl: NavController, public placeService: PlaceService) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -51,6 +51,7 @@ export class SearchPage {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         this.locations = predictions;
         this.dropDownActive = true;
+        this.selectedLocation = predictions[0];
       }
     });
   }
@@ -58,7 +59,7 @@ export class SearchPage {
   selectLocation = (location) => {
     this.dropDownActive = false;
     this.searchQuery = location.description;
-    this.locationIsSelected = true;
+    this.selectedLocation = location;
   };
 
   itemTapped(event, place) {
@@ -66,7 +67,10 @@ export class SearchPage {
   }
 
   places() {
-    return this.placeService.placesNear(this.location);
+    if (this.selectedLocation) {
+      return this.placeService.placesNear(this.selectedLocation);
+    }
+    return [];
   }
 
 }

@@ -1,5 +1,10 @@
 .search-page {
 
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
   .ion-place-tools-autocomplete {
     position: relative;
     width: 100%;
@@ -10,7 +15,7 @@
   }
 
   .ion-place-tools-autocomplete-dropdown {
-    position: absolute;
+    //position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
@@ -21,9 +26,8 @@
   }
 
   .ion-place-tools-map-holder {
-    position: fixed;
+    //position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     z-index: 100;
@@ -53,7 +57,7 @@
 
   .ion-place-tools-map-holder
   .controls {
-    position: absolute;
+    //position: absolute;
     bottom: 20px;
     text-align: center;
     left: 50%;
@@ -61,7 +65,7 @@
   }
 
   .ion-place-tools-map-wrapper {
-    position: relative;
+    //position: relative;
     height: 100%;
   }
 

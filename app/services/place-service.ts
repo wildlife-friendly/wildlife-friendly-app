@@ -18,6 +18,9 @@ export class PlaceService {
   radiosInKm: number = 200;
 
   placesNear(location) {
-    return this.places;
+    if (location.description.toLowerCase().includes("thailand")) {
+      return this.places;
+    }
+    return [];
   }
 }

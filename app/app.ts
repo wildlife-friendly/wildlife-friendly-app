@@ -2,8 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { ionicBootstrap, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
-import { Page1 } from './pages/page1/page1';
+import { SearchPage } from './pages/search-page/search-page';
 import { Page2 } from './pages/page2/page2';
+import {Page1} from "./pages/page1/page1";
 
 import * as Firebase from 'firebase';
 
@@ -13,7 +14,7 @@ import * as Firebase from 'firebase';
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page2;
+  rootPage: any = SearchPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,8 +23,9 @@ class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Find Places', component: Page2 },
-      { title: 'About Us', component: Page1 }
+      { title: 'About Us', component: Page1 },
+      { title: 'Search page', component: SearchPage },
+      { title: 'Page dos', component: Page2 }
     ];
 
   }

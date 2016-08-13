@@ -3,7 +3,6 @@ import { ionicBootstrap, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { SearchPage } from './pages/search-page/search-page';
-import { Page2 } from './pages/page2/page2';
 import {Page1} from "./pages/page1/page1";
 
 import * as Firebase from 'firebase';
@@ -24,8 +23,7 @@ class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'About Us', component: Page1 },
-      { title: 'Search page', component: SearchPage },
-      { title: 'Find Places', component: Page2 }
+      { title: 'Find Places', component: SearchPage }
     ];
 
   }

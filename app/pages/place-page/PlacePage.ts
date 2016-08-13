@@ -5,7 +5,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'build/pages/place-page/place-page.html'
 })
 export class PlacePage {
-  place: any
+  place: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams) {
     this.place = navParams.get('place');

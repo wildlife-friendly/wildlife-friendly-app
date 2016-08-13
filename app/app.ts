@@ -25,7 +25,7 @@ class MyApp {
     this.pages = [
       { title: 'About Us', component: Page1 },
       { title: 'Search page', component: SearchPage },
-      { title: 'Page dos', component: Page2 }
+      { title: 'Find Places', component: Page2 }
     ];
 
   }

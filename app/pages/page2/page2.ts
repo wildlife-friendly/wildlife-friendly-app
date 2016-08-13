@@ -25,9 +25,7 @@ export class Page2 {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(Page2, {
-      item: item
-    });
+    window.location.href = item.url
   }
 
   onSearchInput () {
@@ -35,7 +33,8 @@ export class Page2 {
       this.items = [{
         title: 'Elephant Nature Park',
         note: 'Chiang Mai, Thailand',
-        icon: 'build'
+        icon: 'build',
+        url: 'http://www.elephantnaturepark.org/'
       }]
     }
     else {

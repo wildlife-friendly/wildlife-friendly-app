@@ -13,7 +13,7 @@ import * as Firebase from 'firebase';
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = Page2;
 
   pages: Array<{title: string, component: any}>;
 

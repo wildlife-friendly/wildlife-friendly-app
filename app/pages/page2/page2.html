@@ -5,6 +5,10 @@
     </button>
     <ion-title>Find Places</ion-title>
   </ion-navbar>
+  <ion-searchbar
+  [(ngModel)]="searchText"
+  (ionInput)="onSearchInput()">
+  </ion-searchbar>
 </ion-header>
 
 <ion-content>
@@ -17,7 +21,4 @@
       </div>
     </button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
 </ion-content>

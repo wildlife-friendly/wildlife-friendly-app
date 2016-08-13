@@ -1,36 +1,34 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { PlacePage } from '../place-page/PlacePage'
 
 @Component({
   templateUrl: 'build/pages/page2/page2.html'
 })
 export class Page2 {
-  selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string, url: string}>;
+  places: Array<{title: string, note: string, icon: string, url: string}>;
   searchText: string;
 
   constructor(public navCtrl: NavController, navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
 
     // Let's populate this page with some filler content for funzies
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
+    this.places = [];
 
     this.searchText = "";
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    window.location.href = item.url
+  itemTapped(event, place) {
+    this.navCtrl.push(PlacePage, { place: place })
   }
 
   onSearchInput () {
     if (this.searchText === 'Thailand') {
-      this.items = [{
+      this.places = [{
         title: 'Elephant Nature Park',
         note: 'Chiang Mai, Thailand',
         icon: 'build',
@@ -38,7 +36,7 @@ export class Page2 {
       }]
     }
     else {
-      this.items = []
+      this.places = []
     }
   }
 }

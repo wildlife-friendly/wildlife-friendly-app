@@ -5,4 +5,6 @@ export interface IPlace {
   url: string;
   longitude: number;
   latitude: number;
+  image: string;
+  logo: string;
 }

@@ -9,6 +9,8 @@ export class PlaceService {
     note: 'Chiang Mai, Thailand',
     icon: 'build',
     url: 'http://www.elephantnaturepark.org/',
+    image: 'img/bigenp.jpg',
+    logo: 'img/enp.png',
     longitude: 1,
     latitude: 1
   }];

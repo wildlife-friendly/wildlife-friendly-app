@@ -7,7 +7,7 @@ import { PlacePage } from '../place-page/PlacePage'
 })
 export class Page2 {
   icons: string[];
-  places: Array<{title: string, note: string, icon: string, url: string}>;
+  places: Array<{title: string, note: string, icon: string, url: string, image: string, logo: string}>;
   searchText: string;
 
   constructor(public navCtrl: NavController, navParams: NavParams) {
@@ -32,7 +32,9 @@ export class Page2 {
         title: 'Elephant Nature Park',
         note: 'Chiang Mai, Thailand',
         icon: 'build',
-        url: 'http://www.elephantnaturepark.org/'
+        url: 'http://www.elephantnaturepark.org/',
+        image: 'img/bigenp.jpg',
+        logo: 'img/enp.png'
       }]
     }
     else {

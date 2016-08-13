@@ -1,0 +1,15 @@
+.place-card {
+    position: relative;
+
+    .place-image {
+        max-height: 132px;
+    }
+
+    .place-logo {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        height: 100px;
+        width: 100px;
+    }
+}

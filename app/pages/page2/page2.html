@@ -13,11 +13,16 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let place of places" (click)="itemTapped($event, place)">
-      {{place.title}}
-      <div class="item-note" item-right>
+    <ion-card *ngFor="let place of places" class="place-card" (click)="itemTapped($event, place)">
+      <img src="{{place.image}}" class="place-image" />
+      <img src="{{place.logo}}" class="place-logo"/>
+      <ion-card-header>
+        {{place.title}}
+      </ion-card-header>
+
+      <ion-card-content>
         {{place.note}}
-      </div>
-    </button>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>

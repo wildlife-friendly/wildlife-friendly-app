@@ -8,16 +8,16 @@
 </ion-header>
 
 
-<ion-content padding class="search-page">
+<ion-content class="search-page">
 
-  <div class="item ion-place-tools-autocomplete flex-column">
+  <div class="ion-place-tools-autocomplete flex-column">
     <ion-searchbar type="text"
            autocomplete="off"
            placeholder="Where do you wanna go?"
            [value]="locationQuery"
            (input)="onLocationSearch($event.target.value)">
       </ion-searchbar>
-    <div class="ion-place-tools-autocomplete-dropdown" *ngIf="dropDownActive">
+    <div class="item ion-place-tools-autocomplete-dropdown" *ngIf="dropDownActive">
       <ion-list>
         <ion-item *ngFor="let location of locations" (click)="selectLocation(location)">
           {{location.description}}

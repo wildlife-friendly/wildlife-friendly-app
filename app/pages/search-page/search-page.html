@@ -10,7 +10,7 @@
 
 <ion-content padding class="search-page">
 
-  <div class="item ion-place-tools-autocomplete">
+  <div class="ion-place-tools-autocomplete">
     <ion-searchbar type="text"
            autocomplete="off"
            placeholder="Where do you wanna go?"
@@ -30,19 +30,22 @@
     <ion-list>
       <ion-card *ngFor="let place of places()" class="place-card" (click)="itemTapped($event, place)">
         <img src="{{place.image}}" class="place-image" />
-        <img src="{{place.logo}}" class="place-logo"/>
-        <ion-card-header class="place-content">
-          {{place.title}}
-        </ion-card-header>
-
-        <ion-card-content class="place-content place-details">
-          {{place.note}}
-          <div class="badges">
-            <img class="place-badge" src="img/badges/Picture11.png" />
-            <img class="place-badge" src="img/badges/season_all.png" />
-            <img class="place-badge" src="img/badges/Picture5.png" />
+        <div class="card-info">
+          <img src="{{place.logo}}" class="place-logo"/>
+          <div>
+            <ion-card-header class="place-content">
+              {{place.title}}
+            </ion-card-header>
+            <ion-card-content class="place-content place-details">
+              {{place.note}}
+              <div class="badges">
+                <img class="place-badge" src="img/badges/Picture11.png" />
+                <img class="place-badge" src="img/badges/season_all.png" />
+                <img class="place-badge" src="img/badges/Picture5.png" />
+              </div>
+            </ion-card-content>
           </div>
-        </ion-card-content>
+        </div>
       </ion-card>
     </ion-list>
   </div>

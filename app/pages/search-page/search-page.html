@@ -30,7 +30,7 @@
     <h2>Results</h2>
   </div>
 
-  <div *ngIf="searchIsPending && !placesFound() && hasQuery" class="results-message">
+  <div *ngIf="!placesFound() && hasQuery" class="results-message">
     <h2>No Results</h2>
   </div>
 

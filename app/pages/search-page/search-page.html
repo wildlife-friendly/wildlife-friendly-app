@@ -36,7 +36,7 @@
 
   <div *ngIf="placesFound()">
     <ion-list>
-      <ion-card *ngFor="let place of places()" class="place-card" (click)="itemTapped($event, place)">
+      <ion-card *ngFor="let place of availablePlaces()" class="place-card" (click)="itemTapped($event, place)">
         <img src="{{place.image}}" class="place-image"/>
         <div class="card-info">
           <img src="{{place.logo}}" class="place-logo"/>

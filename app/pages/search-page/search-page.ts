@@ -39,6 +39,7 @@ export class SearchPage {
     if (!query) {
       query = '';
     }
+    this.placeService.availablePlaces = [];
 
     this.dropDownActive = (query.length >= 3 && this.locations.length);
 
@@ -59,6 +60,7 @@ export class SearchPage {
         this.locations = predictions;
         this.dropDownActive = true;
         this.selectedLocation = predictions[0];
+        this.placeService.placesNear(this.selectedLocation);
       }
     });
   }
@@ -82,7 +84,11 @@ export class SearchPage {
   }
 
   placesFound(): boolean {
-    return this.places().length > 0;
+    return this.availablePlaces().length > 0;
+  }
+
+  availablePlaces() {
+    return this.placeService.availablePlaces;
   }
 
 }

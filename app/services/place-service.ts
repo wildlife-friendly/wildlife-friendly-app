@@ -18,28 +18,27 @@ export class PlaceService {
     logo: 'img/enp.png',
     longitude: 98.86139,
     latitude: 19.21644
-  }
-  // ,
-  //   {
-  //     title: 'Deer Forest',
-  //     note: 'Odem, Israel',
-  //     icon: 'build',
-  //     url: 'http://www.yayalim.co.il/',
-  //     image: 'img/deer.jpg',
-  //     logo: 'img/deerLogo.gif',
-  //     longitude: 35.74957,
-  //     latitude: 33.19337
-  //   },
-  //   {
-  //     title: 'Dolphin Reef Eilat',
-  //     note: 'Eilat, Israel',
-  //     icon: 'build',
-  //     url: 'http://www.dolphinreef.co.il/',
-  //     image: 'img/dol.jpg',
-  //     logo: 'img/dolLogo.gif',
-  //     longitude: 34.93579,
-  //     latitude: 29.52713
-  //   }
+  },
+    {
+      title: 'Deer Forest',
+      note: 'Odem, Israel',
+      icon: 'build',
+      url: 'http://www.yayalim.co.il/',
+      image: 'img/deer.jpg',
+      logo: 'img/deerLogo.gif',
+      longitude: 35.74957,
+      latitude: 33.19337
+    },
+    {
+      title: 'Dolphin Reef Eilat',
+      note: 'Eilat, Israel',
+      icon: 'build',
+      url: 'http://www.dolphinreef.co.il/',
+      image: 'img/dol.jpg',
+      logo: 'img/dolLogo.gif',
+      longitude: 34.93579,
+      latitude: 29.52713
+    }
   ];
 
   radiosInKm: number = 200;
@@ -55,15 +54,20 @@ export class PlaceService {
       destinations: allPlaces,
       travelMode: 'DRIVING',
     }, this.calcAvailablePlaces);
-
-    if (location.description.toLowerCase().includes("thailand")) {
-      return this.places;
-    }
     return [];
   }
 
-  calcAvailablePlaces(result) {
-    // console.log(result.rows[0].);
-    // this.availablePlaces.filter((r) => r.)
+  calcAvailablePlaces = (result) => {
+    let placesWithDistance = [];
+
+    for(let i = 0; i < this.places.length; i++){
+      if (result.rows[0].elements[i].status === "OK") {
+        let place = this.places[i];
+        place['distance'] = result.rows[0].elements[i].distance.value / 1000;
+        placesWithDistance.push(place);
+      }
+    }
+
+    this.availablePlaces = placesWithDistance.filter(p => p.distance < this.radiosInKm);
   }
 }

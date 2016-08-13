@@ -12,11 +12,11 @@
 
   <div class="ion-place-tools-autocomplete flex-column">
     <ion-searchbar type="text"
-           autocomplete="off"
-           placeholder="Where do you wanna go?"
-           [value]="locationQuery"
-           (input)="onLocationSearch($event.target.value)">
-      </ion-searchbar>
+                   autocomplete="off"
+                   placeholder="Where do you wanna go?"
+                   [(ngModel)]="locationQuery"
+                   (input)="onLocationSearch($event.target.value)">
+    </ion-searchbar>
     <div class="item ion-place-tools-autocomplete-dropdown" *ngIf="dropDownActive">
       <ion-list>
         <ion-item *ngFor="let location of locations" (click)="selectLocation(location)">
@@ -26,10 +26,18 @@
     </div>
   </div>
 
-  <div *ngIf="places().length > 0">
+  <div *ngIf="searchIsPending && placesFound()" class="results">
+    <h2>Results</h2>
+  </div>
+
+  <div *ngIf="searchIsPending && !placesFound() && hasQuery" class="results">
+    <h2>No Results</h2>
+  </div>
+
+  <div *ngIf="placesFound()">
     <ion-list>
       <ion-card *ngFor="let place of places()" class="place-card" (click)="itemTapped($event, place)">
-        <img src="{{place.image}}" class="place-image" />
+        <img src="{{place.image}}" class="place-image"/>
         <div class="card-info">
           <img src="{{place.logo}}" class="place-logo"/>
           <div>
@@ -39,9 +47,9 @@
             <ion-card-content class="place-content place-details">
               {{place.note}}
               <div class="badges">
-                <img class="place-badge" src="img/badges/Picture11.png" />
-                <img class="place-badge" src="img/badges/season_all.png" />
-                <img class="place-badge" src="img/badges/Picture5.png" />
+                <img class="place-badge" src="img/badges/Picture11.png"/>
+                <img class="place-badge" src="img/badges/season_all.png"/>
+                <img class="place-badge" src="img/badges/Picture5.png"/>
               </div>
             </ion-card-content>
           </div>

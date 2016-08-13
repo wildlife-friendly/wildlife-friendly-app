@@ -16,10 +16,11 @@ export class SearchPage {
   dropDownActive: boolean;
   service = new google.maps.places.AutocompleteService();
   latLng = null;
-  searchQuery;
   locations;
   locationQuery: string = "";
   selectedLocation: string = "";
+  searchIsPending: boolean = true;
+  hasQuery: boolean = false;
 
   constructor(public navCtrl: NavController, public placeService: PlaceService) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -33,13 +34,19 @@ export class SearchPage {
   }
 
   onLocationSearch(query: string) {
+    this.searchIsPending = true;
+
     if (!query) {
       query = '';
     }
+
     this.dropDownActive = (query.length >= 3 && this.locations.length);
+
+    this.hasQuery = query.length > 0;
 
     if (query.length < 3) {
       this.locations = [];
+      this.selectedLocation = null;
       return;
     }
 
@@ -58,8 +65,9 @@ export class SearchPage {
 
   selectLocation = (location) => {
     this.dropDownActive = false;
-    this.searchQuery = location.description;
+    this.locationQuery = location.description;
     this.selectedLocation = location;
+    this.searchIsPending = false;
   };
 
   itemTapped(event, place) {
@@ -71,6 +79,10 @@ export class SearchPage {
       return this.placeService.placesNear(this.selectedLocation);
     }
     return [];
+  }
+
+  placesFound(): boolean {
+    return this.places().length > 0;
   }
 
 }

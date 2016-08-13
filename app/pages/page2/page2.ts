@@ -7,7 +7,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class Page2 {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Array<{title: string, note: string, icon: string, url: string}>;
   searchText: string;
 
   constructor(public navCtrl: NavController, navParams: NavParams) {

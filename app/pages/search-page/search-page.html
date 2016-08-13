@@ -11,11 +11,12 @@
 <ion-content padding class="search-page">
 
   <div class="item ion-place-tools-autocomplete">
-    <input type="text"
+    <ion-searchbar type="text"
            autocomplete="off"
            placeholder="Where do you wanna go?"
            [value]="location"
            (input)="onLocationSearch($event.target.value)">
+      </ion-searchbar>
     <div class="ion-place-tools-autocomplete-dropdown" *ngIf="dropDownActive">
       <ion-list>
         <ion-item *ngFor="let location of locations" (click)="selectLocation(location)">
